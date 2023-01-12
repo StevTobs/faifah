@@ -1,6 +1,6 @@
 # FaiFah
-FaiFah is an open source program to perform statistic analysis of electric power systems.cd D
+FaiFah is an open source program to perform statistic analysis of electric power systems.
 
 # Documentation
 
-https://faifah.readthedocs.io/en/latest/
+https://faifah.readthedocs.io
