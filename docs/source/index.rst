@@ -1,7 +1,7 @@
 Welcome to FaiFah's documentation!
 ===================================
 
-**FaiFah** (ไฟฟ้า) is a Python library for power system analysis.
+**FaiFah** is a Python library for power system analysis.
 
 
 Now this page is under construction.
