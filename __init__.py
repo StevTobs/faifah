@@ -10,8 +10,12 @@ from colorama import Fore, Back, Style
 from termcolor import colored
 
 # from <FOLDER NAME> import <NAME of .py>
-from faifah import ieee_test_system
-# import ieee_test_system
+#For PYPI
+# from faifah import ieee_test_system
+
+#For local run
+import ieee_test_system
+
 
 # Require :
 # - numpy
@@ -55,7 +59,6 @@ class Grid:
         self.total_kVAr_demand  = self.load_data.Q_KVAr.sum()
         self.total_kVAr_supply  = 0
 
-
         self.total_kW_loss = 0
         self.total_kVAr_loss = 0
 
@@ -90,8 +93,6 @@ class Grid:
 
         self.org_network  = deepcopy(self.network)
  
-    
-
     
     def query_csv(self, nbus, LINE_DATA_CSV, BUS_DATA_CSV):
 
@@ -1081,8 +1082,15 @@ class Grid:
         return abs(systemObj.V[:])
 
 if __name__ == "__main__" :
-
+    
+    
+    print('in main')
+    import os
+    print("PYTHONPATH:", os.environ.get('PYTHONPATH'))
+    print("PATH:", os.environ.get('PATH'))
+    
 #Query from CSV
+
     # MVA_base = 100.0 # Defining the Base-MVA
     # KV_base = 100 #KV 
     # nBus = 5
@@ -1103,6 +1111,7 @@ if __name__ == "__main__" :
     # IEEE5_csv.Report()
 
 #Query from package
+
     NETWORK_ = 'IEEE5'
     MVA_base = 100.0 # Defining the Base-MVA
     KV_base = 100 #KV 

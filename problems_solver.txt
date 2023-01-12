@@ -1,0 +1,29 @@
+# About setup enviroment in VSCODE for Windows
+
+*To set Anaconda as a default of running Python
+
+1) Open VS Code's Command Palette menu by pressing Ctrl+Shift+P or F1
+2) search 'Python path'
+3) change path from 'Python' to <your Anaconda path>  ( e.g. 'C:\Users\497934\Anaconda3'  )
+
+*To set Anaconda Propt as a default of VSCODE (otherwise the version always occur)
+
+I'm using Python 3.8 by Miniconda on Win 10 system. I solved the problem by changing default terminal from PowerShell to Command Prompt.
+
+Steps:
+
+1) Open VS Code's Command Palette menu by pressing Ctrl+Shift+P or F1
+2) Choose "Terminal: Select Default Profile" entry
+3) Then pick "Command Prompt" option
+4) Restart VS Code
+
+
+* Installing PyPSA with conda
+(https://pypsa.readthedocs.io/en/latest/installation.html#installing-pypsa-with-conda)
+ adding the conda-forge channel to your conda installation with:
+>> conda install -c conda-forge pypsa
+ adding the conda-forge channel to your conda installation with:
+>> conda install pypsa
+
+* ถ้าติดปัญหา SSL Error while installing any package from conda prompt ให้ run
+>> conda config --set ssl_verify False
