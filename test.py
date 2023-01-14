@@ -16,6 +16,8 @@ from tabulate import tabulate
 # from colorama import Fore, Back, Style
 # from termcolor import colored
 
+
+# Test 
 table = [["Sun",696000,1989100000],["Earth",6371,5973.6], ["Moon",1737,73.5],["Mars",3390,641.85]]
 print(tabulate(table))
 
@@ -26,3 +28,7 @@ print(x)
 print('current directory')
 # print(os.getcwd())
 print(1+2)
+
+
+df = pd.read_csv('loadProfile_2017.csv')
+print(df.head())

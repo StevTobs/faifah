@@ -1081,13 +1081,14 @@ class Grid:
 
         return abs(systemObj.V[:])
 
+
 if __name__ == "__main__" :
     
     
-    print('in main')
-    import os
-    print("PYTHONPATH:", os.environ.get('PYTHONPATH'))
-    print("PATH:", os.environ.get('PATH'))
+    # print('in main')
+    # import os
+    # print("PYTHONPATH:", os.environ.get('PYTHONPATH'))
+    # print("PATH:", os.environ.get('PATH'))
     
 #Query from CSV
 
