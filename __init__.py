@@ -11,10 +11,10 @@ from termcolor import colored
 
 # from <FOLDER NAME> import <NAME of .py>
 #For PYPI
-# from faifah import ieee_test_system
+from faifah import ieee_test_system
 
 #For local run
-import ieee_test_system
+# import ieee_test_system
 
 
 # Require :
