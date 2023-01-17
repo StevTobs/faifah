@@ -10,3 +10,9 @@ The Per-Unit Power System Representation:
 - ``self.Z_base``   : Impedance base 
 
 - ``self.Y_base``   : Admipedance base 
+
+
+- Power base (MW)
+```python
+self.MVA_base
+
