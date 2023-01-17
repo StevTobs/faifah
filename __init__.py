@@ -8,18 +8,26 @@ import pypsa
 from numpy import genfromtxt
 from colorama import Fore, Back, Style
 from termcolor import colored
-
-## For PYPI
+from past.builtins import execfile
+import os
 # from <FOLDER NAME> import <NAME of .py>
-
-# from faifah import ieee_test_system
+# For PYPI
+from faifah import ieee_test_system
 # from faifah import load_profile
-# NOTE The variables can be imported under Class 
+# from faifah import dummy
 
 
-## For local run
-import ieee_test_system
-import load_profile
+# -- NOTE The variables can be imported under Class 
+
+
+#For local run
+# import ieee_test_system
+# import load_profile
+# import dummy.plk
+
+import os
+
+
 
 
 # Require :
@@ -52,11 +60,17 @@ class Grid:
         else :
             print('Invalid')
 
-        
-        self.load_profile = load_profile.df_loadProfile
-        print("Load profile \' <module>.load_profile  \' ")
-        print(self.load_profile.head() )
 
+        # print("=======Load profile=============")
+
+        # # execfile( 'dummy.pkl' )
+        # # self.run_file('dummy.pkl')
+        # # exec(compile(open('dummy.pkl').read()))
+
+        # self.load_profile   = pd.read_pickle('dummy.pkl')
+        # print(self.load_profile.head())
+        # print("===============================")
+        
         self.slack_bus_pos  = SLACK_POS 
         self.MVA_base       = MVA_base   
         self.KV_base        = KV_base
@@ -103,6 +117,12 @@ class Grid:
 
         self.org_network  = deepcopy(self.network)
  
+    def run_file(self, path):
+        return exec(open(path).read())
+
+
+
+
     
     def query_csv(self, nbus, LINE_DATA_CSV, BUS_DATA_CSV):
 
@@ -1093,6 +1113,14 @@ class Grid:
 
 
 if __name__ == "__main__" :
+
+        
+    # For local run
+
+    # import ieee_test_system
+    # import load_profile
+
+
     
     
     # print('in main')
@@ -1131,13 +1159,19 @@ if __name__ == "__main__" :
 
     IEEE5 = Grid( nBus, NETWORK_, '', '', MVA_base ,  KV_base, SLACK_POS )
     IEEE5.Report()
+    # import os
+
+
+    # print(loadProfile_2017.csv loadProfile_2017.csv)
+    # print('File name :    ', os.path.basename( "loadProfile_2017.csv"))
+    # print('Directory Name:     ', os.path.dirname("loadProfile_2017.csv"))
+    # print( IEEE5.df_loadProfile.head() )
+
+
+
 
     # print( IEEE5.line_data )
     # print( IEEE5.load_data )
-    print(load_profile.df_loadProfile.head() )
-    print("-------")
-    print( IEEE5.load_profile.head())
-
 
 
 
