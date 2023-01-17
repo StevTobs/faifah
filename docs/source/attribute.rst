@@ -13,6 +13,7 @@ The Per-Unit Power System Representation:
 
 
 - Power base (MW)
+
 ```python
-self.MVA_base
+    self.MVA_base
 
