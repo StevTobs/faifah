@@ -9,12 +9,17 @@ from numpy import genfromtxt
 from colorama import Fore, Back, Style
 from termcolor import colored
 
+## For PYPI
 # from <FOLDER NAME> import <NAME of .py>
-#For PYPI
-from faifah import ieee_test_system
 
-#For local run
-# import ieee_test_system
+# from faifah import ieee_test_system
+# from faifah import load_profile
+# NOTE The variables can be imported under Class 
+
+
+## For local run
+import ieee_test_system
+import load_profile
 
 
 # Require :
@@ -46,7 +51,12 @@ class Grid:
 
         else :
             print('Invalid')
+
         
+        self.load_profile = load_profile.df_loadProfile
+        print("Load profile \' <module>.load_profile  \' ")
+        print(self.load_profile.head() )
+
         self.slack_bus_pos  = SLACK_POS 
         self.MVA_base       = MVA_base   
         self.KV_base        = KV_base
@@ -1124,6 +1134,10 @@ if __name__ == "__main__" :
 
     # print( IEEE5.line_data )
     # print( IEEE5.load_data )
+    print(load_profile.df_loadProfile.head() )
+    print("-------")
+    print( IEEE5.load_profile.head())
+
 
 
 
