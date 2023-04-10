@@ -10,9 +10,15 @@ from colorama import Fore, Back, Style
 from termcolor import colored
 from past.builtins import execfile
 import os
+
+
+
+
+
+
 # from <FOLDER NAME> import <NAME of .py>
 # For PYPI
-from faifah import ieee_test_system
+# from faifah import ieee_test_system
 # from faifah import load_profile
 # from faifah import dummy
 
@@ -21,7 +27,7 @@ from faifah import ieee_test_system
 
 
 #For local run
-# import ieee_test_system
+import ieee_test_system
 # import load_profile
 # import dummy.plk
 
@@ -78,9 +84,9 @@ class Grid:
         self.Y_base         = 1 / self.Z_base
 
 
-        self.total_kW_demand    = self.load_data.P_KW.sum() 
+        self.total_kW_demand    = 0
         self.total_kW_supply    = 0
-        self.total_kVAr_demand  = self.load_data.Q_KVAr.sum()
+        self.total_kVAr_demand  = 0
         self.total_kVAr_supply  = 0
 
         self.total_kW_loss = 0
@@ -365,16 +371,14 @@ class Grid:
         for i in range(len( network.lines)):
             fromBus = int( network.lines['bus0'].iloc[i].split(' ')[2])
             toBus = int( network.lines['bus1'].iloc[i].split(' ')[2])
-
-            # Y_bus[fromBus-1,toBus-1] = (((network.lines.r.iloc[i]+network.lines.x.iloc[i] *1j)*self.Z_base )**(-1))/self.Y_base
-            # Y_bus[toBus-1,fromBus-1] = (((network.lines.r.iloc[i]+network.lines.x.iloc[i] *1j)*self.Z_base)**(-1))/self.Y_base
-            Y_bus[fromBus-1,toBus-1] = -(((network.lines.r.iloc[i]+network.lines.x.iloc[i] *1j))**(-1))
-            Y_bus[toBus-1,fromBus-1] = -(((network.lines.r.iloc[i]+network.lines.x.iloc[i] *1j))**(-1))
+            Y_bus[fromBus-1,toBus-1] = (((network.lines.r.iloc[i]+network.lines.x.iloc[i] *1j))**(-1))
+            Y_bus[toBus-1,fromBus-1] = (((network.lines.r.iloc[i]+network.lines.x.iloc[i] *1j))**(-1))
 
             if fromBus-1  != toBus-1 :
                 Y_bus[fromBus-1,fromBus-1 ] = Y_bus[fromBus-1,fromBus-1 ] - Y_bus[fromBus-1,toBus-1] 
                 Y_bus[toBus-1,toBus-1 ] = Y_bus[toBus-1,toBus-1 ] - Y_bus[fromBus-1,toBus-1]  
-
+                Y_bus[fromBus-1,fromBus-1 ] = -Y_bus[fromBus-1,fromBus-1 ]
+                Y_bus[toBus-1,toBus-1 ] = -Y_bus[fromBus-1,fromBus-1 ]
 
 
         return Y_bus
